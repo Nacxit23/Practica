@@ -1,158 +1,121 @@
-;
-((c)=>{
+const l = () => {
+  console.log("bye");
+};
 
-c('Utilizando operadores ');
+(l => {
+  l("Utilizando operadores ");
 
-    
-           
-        let resultado
-        let operadores = function (opciones, numero1, numero2) {
-            
-           if (opciones <= 5) {
+  let resultado;
 
+  const operadores = (opciones, numero1, numero2) => {
+    let msj;
 
-            switch (opciones) {
-
-                case 0:
-                       resultado = numero1 + numero2;
-
-                        return c(`${resultado}`)
-    
-                    break;
-                case 1:
-                       resultado = numero1 - numero2;
-    
-                    break
-                case 2:
-                        resultado = numero1 * numero2;
-                        return c(`${resultado}`)
-
-                    break;
-                
-                case 3: 
-                        resultado = numero2 / numero2;
-                        c(`${resultado}`)
-
-                    break;
-    
-                case 4:
-                        if (numero1 != numero2) {
-                            
-                            if (numero1 > numero2) {
-                            
-                               return c(`${numero1} es mayor a ${numero2}`)
-                            }
-                        }else{
-                              return c('Los dos numero son iguales')
-                        }
-                       
-                break;
-    
-                case 5:
-                        if (numero1 % 2 == 0) {
-                          return  c(`${numero1} es par`)
-                        } else {
-                          return  c(`${numero1} no es par`)
-                        }
-                break; 
-            }
-        } else {
-
-           c('La opcion que usted ingreso no se encuentra disponible')
-           
-        }
-
+    if (opciones > 5) {
+      l("La opcion que usted ingreso no se encuentra disponible");
+      return;
     }
 
-    operadores(0,5,5)
-
-
-
-    c('Usando condicionales ')
-
-   
-        let dowhile = function(){
-
-            let a = 1
-
-            do {
-
-                 c(` contador: ${a++}`)
-                
-            } while (a <= 10 );
+    switch (opciones) {
+      case 0:
+        resultado = numero1 + numero2;
+        break;
+      case 1:
+        resultado = numero1 - numero2;
+        break;
+      case 2:
+        resultado = numero1 * numero2;
+        break;
+      case 3:
+        resultado = numero2 / numero2;
+        break;
+      case 4:
+        if (numero1 === numero2) {
+          l("Los dos numero son iguales");
+          return;
         }
 
-        dowhile()
+        msj =
+          numero1 > numero2
+            ? `${numero1} es mayor a ${numero2}`
+            : `${numero2} es mayor a ${numero1}`;
+        l(msj);
+        return;
+        break;
+      case 5:
+        msj =
+          numero1 % 2 === 0
+            ? l(`${numero1} es par`)
+            : l(`${numero1} no es par`);
+        return;
+        break;
+    }
+    l(`resultado = ${resultado}`);
+  };
 
-        let forej = function () {
+  operadores(0, 5, 5);
+  l("Usando condicionales ");
 
-            let array = [
+  const dowhile = max => {
+    let a = 1;
+    do {
+      l(` contador: ${a++}`);
+    } while (a <= max);
+  };
+  dowhile(10);
 
-                'frito',
-                'fritanga',
-                'sopa',
-                'montongo',             
-            ];
+  const forej = array => {
+    for (let index = 0; index < array.length; index++) {
+      l(`Su alimento son: ${array}`);
+    }
+  };
 
-            for (let index = 0; index < array.length; index++) {
-                
-                c(`Su alimento son: ${array}`)
-                
-            }
-        }
+  forej(["frito", "fritanga", "sopa", "montongo"]);
 
-        forej()
+  l("Usando funciones de clausula");
 
+  const convertidor = cantidad => {
+    let _dinero = cantidad;
 
-    c('Usando funciones de clausula')
+    console.log("this", this);
+    if (_dinero === 0) {
+      l("No puede ser 0");
+      return;
+    }
 
-     let convertidor = (() =>{
-         
-     
-                let _dinero = 100
+    const dolares = () => {
+      return _dinero * 0.031;
+      h;
+    };
 
+    const euro = () => {
+      return _dinero * 0.027;
+    };
 
-            if (_dinero !=0) {
+    const colones = () => {
+      return _dinero * 19.64;
+    };
 
-                let _resultado
-                   
-                function dolares() {
-                    
-                  return  _resultado= _dinero* 0.031
-               }
+    const dineroactual = () => {
+      return `Su dinero ingresado es de: ${_dinero}`;
+    };
 
-               function euro() {
+    return {
+      dolares: dolares,
+      euro: euro,
+      colones: colones,
+      dineroactual: dineroactual
+    };
+  };
 
-                return _resultado= _dinero * 0.027
-               
-              }
+  const convert1 = convertidor(10);
+  const convert2 = convertidor(20);
 
-              function colones() {
-                return _resultado= _dinero * 19.64
-              }
+  l(`Dolares 1: ${convert1.dolares()}`);
+  l(`Colones: ${convert1.colones()}`);
+  l(`euro: ${convert1.euro()}`);
 
-              function dineroactual() {
-                return `Su dinero ingresado es de: ${_dinero}`
-
-              }
-
-               } else {
-                 c('No puede ser 0')   
-               }
-           
-            
-            return {
-
-                dolares: dolares,
-                euro: euro,
-                colones: colones,
-                dineroactual: dineroactual
-            }
-        })();
-        c(convertidor.dineroactual())
-        c(`Dolares: ${convertidor.dolares()}`)
-        c(`Colones: ${convertidor.colones()}`)
-        c(`euro: ${convertidor.euro()}`)     
-
-        
+  convert2.dineroactual(20);
+  l(`Dolares: ${convert2.dolares()}`);
+  l(`Colones: ${convert2.colones()}`);
+  l(`euro: ${convert2.euro()}`);
 })(console.log);

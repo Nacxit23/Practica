@@ -1,0 +1,94 @@
+
+
+/*Practica de GRID LAYOUT*/
+
+body{
+
+    font: arial;
+
+}
+
+/*Existen diferentes optines para trabar en grit que son las siguientes*/
+
+/*
+
+grid-template-columns -> Este define la cantidad de columnas que tendra el layout
+grid-template-rows    -> Este define la cantidad de columnas que tendra el layout
+display-inline-grid   -> Este permite que todos los elemento que contega el conteiner se comvierta automaticamente en cuadrilla
+grip-column-gap        -> permite espaciado de linea entre columna
+grid-rown-gap        -> permite espaciado de linea entre filas
+grid-column-start    -> permite definir en que columna comienza el elemento seleccionado
+gird-column-end      -> permite definir en que columna termina el elemento seleccionado
+
+
+
+
+
+
+
+
+
+*/
+
+
+/*Se asigna el tamano de la filas y columnas */
+.container{
+    display: grid;
+    grid-template: 90px 785px 90px/ 500px;
+    grid-template-areas: "header header"  /*Distribucion de la areas*/
+                         "left contenido" 
+                         "footer footer";
+    grid-row-gap: 3px; /*Permite un espacio */
+}
+/*Agrego color a los bordes de cada seccion*/
+.item{
+    background-color: green;
+    border: 1px solid red; 
+    padding: 10px;  
+}
+
+/*Asignacion dentro de un item*/
+/*Se puede usar grid tambien para asignar layout dentro de un item*/
+.item:nth-of-type(2){
+    background-color: #23C0B5;
+    display: grid;
+    grid-gap: 4px;
+    grid-template: 2cm 1fr 2cm / 2cm 1fr 2cm;
+}
+.item .item{
+
+    background-color: cornflowerblue;
+    border: 2px solid green;
+    padding: 5px;
+
+
+}
+
+/* Asignando el contenido de cada area */
+
+.header{
+    background-color: #23C0B5;
+    grid-area: header;
+}
+.footer{
+
+    grid-area: footer;
+}
+
+.left{
+
+    grid-area: left;
+    background-color: #4d88ff;
+}
+
+.contenido{
+
+    grid-area: contenido;
+
+}
+
+
+
+
+
+

@@ -1,5 +1,7 @@
 <?php
 
+namespace PHP\clases; // utilizando namespace
+
  require_once "interfaceE.php";
 class CuentaBanco implements interfaceE
 {

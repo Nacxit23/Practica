@@ -1,5 +1,7 @@
 <?php
 
+namespace PHP\clases; // utilizando namespace
+
     interface interfaceE
     
     {

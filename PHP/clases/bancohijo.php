@@ -1,5 +1,7 @@
 <?php
 
+namespace PHP\clases; // utilizando namespace
+
 require_once "CuentaBanco.php";
 // aplicando herencia , la clase hija accede a la clase padre heredando asi su metodos
 class bancohijo extends CuentaBanco 

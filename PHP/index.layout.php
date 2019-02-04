@@ -1,9 +1,15 @@
 <?php
         
+        use PHP\clases\CuentaBanco;
+        use PHP\clases\bancohijo;
+        use PHP\clases\varios;
+
         include_once('./clases/CuentaBanco.php');
         include_once('./clases/bancohijo.php');
-
         include_once('./clases/varios.php');
+
+      
+        // utilizando los use
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +64,18 @@
 
         }
 
+        .varios{
+            position: absolute;
+            background-color: rgb(64, 219, 209);
+            opacity:0.6;
+            width: 500px;
+            height: 530px;
+            left: 700px;
+            padding-left: 10px;
+            border: 3px solid #AD40DB;
+            box-shadow: 10px 10px 5px grey;
+        }
+
 
 
 </style>
@@ -102,6 +120,7 @@
         ?>
 
         </div>
+
         
 </body>
 </html>

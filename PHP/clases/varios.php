@@ -1,16 +1,35 @@
 <?php
 
+namespace PHP\clases; // utilizando namespace
+
     // palicando resolucion de anbito
 
- class Resolucion
+ class varios
  {
     //llamando la primera clase
     public function prueba(){
 
         echo 'tengo hambre'; 
-    }    
+    } 
+
+
+    
+              //     Usando directorio            
+    
+        
+
+    public function direcciones(){
+
+        echo getcwd() . "<br>";
+        chdir('imagen.php');     // actualizando una direccion nueva
+
+
+        return getcwd() . "<br>";
+   }
+
  }
- Resolucion::prueba(); // Probando resolucion de ambito // devuelve la frase
+
+  // Probando resolucion de ambito // devuelve la frase
 
 
  class Metodo_estatico{
@@ -24,4 +43,8 @@
      }
  }
 
+ varios::prueba();
  Metodo_estatico::calculo(10,12); // mostrando la clase estatica
+
+
+// utilizando directorio en PHP

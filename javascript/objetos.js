@@ -1,92 +1,62 @@
-;
+((log, d) => {
+  log("Objeto sencillo");
 
-((c,d)=>{
-    c('Objeto sencillo')
+  const carro = {
+    marca: "Toyota",
+    color: "verde",
+    categoria: "cedan",
+    tipo: "automatico",
 
-    let carro = {
-
-        marca: 'Toyota',
-        color: 'verde',
-        categoria:  'cedan',
-        tipo:   'automatico',
-
-        recorrido (concideracion){
-
-            if (concideracion >= 150000) {
-                c('Es un carro viejo')
-            } else {
-                c('No es un carro viejo')
-            }
-        }
+    recorrido(concideracion) {
+      return concideracion >= 150000
+        ? "Es un carro viejo"
+        : "No es un carro viejo";
     }
+  };
 
-    c( 'Atributo del carro \n',
+  const { marca, color, categoria, tipo } = carro;
+  log("Atributo del carro \n", marca, color, categoria, tipo);
 
-        carro.marca,
-        carro.color,
-        carro.categoria,
-        carro.tipo
-    )
-    carro.recorrido(3424252)
+  carro.recorrido(3424252);
 
+  log("Usando protetipo ==============================================");
 
-    c('Usando protetipo ==============================================')
+  let carro2 = new Object();
 
-    let carro2 = new Object()
-
-    carro2.marca= 'Toyota',
-    carro2.color= 'verde',
-    carro2.categoria=  'cedan',
-    carro2.tipo=   'automatico',
-
-
-    carro2.recorrido = (concideracion) => {
-
-        if (concideracion >= 150000) {
-            c('Es un carro viejo')
-        } else {
-            c('No es un carro viejo')
-        }
+  carro2["marca"] = "Toyota";
+  carro2.color = "verde";
+  carro2["categoria"] = "cedan";
+  carro2.tipo = "automatico";
+  carro2.recorrido = concideracion => {
+    if (concideracion >= 150000) {
+      log("Es un carro viejo");
+    } else {
+      log("No es un carro viejo");
     }
-    c(
-    carro2.marca,
-    carro2.color,
-    carro2.categoria,
-    carro2.tipo,
-    )
-    carro2.recorrido(3424252)
+  };
 
-    c('Usando cpntructor ==============================================')
+  log(carro2.marca, carro2.color, carro2.categoria, carro2.tipo);
+  carro2.recorrido(3424252);
 
-    function carro3(marca,color,categoria,tipo) {
-        
-        this.marca = marca,
-        this.color = color,
-        this.categoria = categoria,
-        this.tipo = tipo
+  log("Usando cpntructor ==============================================");
 
-        this.recorrido = (concideracion) => {
+  const carro3 = function(marca, color, categoria, tipo) {
+    this.marca = marca;
+    this.color = color;
+    this.categoria = categoria;
+    this.tipo = tipo;
 
-            if (concideracion >= 150000) {
-                c('Es un carro viejo')
-            } else {
-                c('No es un carro viejo')
-            }
-        }
+    this.recorrido = concideracion => {
+      if (concideracion >= 150000) {
+        log("Es un carro viejo");
+      } else {
+        log("No es un carro viejo");
+      }
+    };
+  };
 
-    }
+  const carro3l = new carro3("Toyota", "Verde", "cedan", "automatico");
 
-    let carro3l = new carro3( 'Toyota', 'Verde','cedan','automatico')
-
-
-    c(
-        carro3l.marca,
-        carro3l.color,
-        carro3l.categoria,
-        carro3l.tipo
-    )
-    carro3l.recorrido(2131)
-
-
-
-})(console.log,document)
+  log(carro3l.marca, carro3l.color, carro3l.categoria, carro3l.tipo);
+  carro3l.recorrido(2131);
+})(console.log, document);
